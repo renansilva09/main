@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabor Nobre | Gastronomia Premium</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --preto: #0b0c0f;
+    --card: #17191e;
+    --dourado: #d9ad58;
+    --branco: #f5f5f5;
+    --cinza: #a9adb6;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* MENU SUPERIOR */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    border-bottom: 1px solid #292a2e;
+    position: sticky;
+    top: 0;
+    background: rgba(11,12,15,0.96);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.logo {
+    color: var(--dourado);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.logo small {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--dourado);
+}
+
+.botao {
+    display: inline-block;
+    background: var(--dourado);
+    color: #151515;
+    padding: 12px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #f0cc82;
+    transform: translateY(-2px);
+}
+
+/* INÍCIO */
+
+.hero {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 65px 10%;
+    background:
+        radial-gradient(ellipse at 85% 50%, #302619 0%, transparent 35%),
+        linear-gradient(120deg, #111216, #0b0c0f);
+    border-bottom: 1px solid #292a2e;
+}
+
+.hero-texto {
+    max-width: 650px;
+    animation: aparecer 1s ease;
+}
+
+.etiqueta {
+    color: var(--dourado);
+    letter-spacing: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: var(--dourado);
+}
+
+.hero p {
+    color: var(--cinza);
+    max-width: 470px;
+    margin-bottom: 28px;
+}
+
+.destaque {
+    border-left: 2px solid var(--dourado);
+    padding-left: 20px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #e3d8c7;
+    max-width: 190px;
+}
+
+/* SEÇÕES DO CARDÁPIO */
+
+section.cardapio {
+    padding: 65px 8%;
+    border-bottom: 1px solid #292a2e;
+    scroll-margin-top: 85px;
+}
+
+.titulo-secao {
+    margin-bottom: 30px;
+}
+
+.titulo-secao span {
+    color: var(--dourado);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.titulo-secao h2 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    margin-top: 5px;
+}
+
+.titulo-secao p {
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+.lista-pratos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.prato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: var(--card);
+    border: 1px solid #24262c;
+    border-radius: 7px;
+    padding: 19px;
+    transition: .3s;
+}
+
+.prato:hover {
+    border-color: var(--dourado);
+    transform: translateY(-3px);
+}
+
+.prato h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.prato p {
+    color: var(--cinza);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.preco {
+    color: var(--dourado);
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+/* CONTATO E ENDEREÇO */
+
+footer {
+    padding: 45px 8% 20px;
+    background: #08090b;
+}
+
+.informacoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 35px;
+}
+
+.info h3 {
+    color: var(--dourado);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.info p, .info a {
+    color: var(--cinza);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.info a:hover {
+    color: var(--dourado);
+}
+
+.rodape-final {
+    border-top: 1px solid #292a2e;
+    padding-top: 20px;
+    text-align: center;
+    color: #777b84;
+    font-size: 12px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 760px) {
+    header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    header > .botao {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 55px 7%;
+        min-height: 330px;
+    }
+
+    .destaque {
+        display: none;
+    }
+
+    section.cardapio {
+        padding: 45px 5%;
+    }
+
+    .lista-pratos {
+        grid-template-columns: 1fr;
+    }
+
+    .informacoes {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#inicio" class="logo" style="text-decoration:none">
+        SABOR NOBRE
+        <small>GASTRONOMIA PREMIUM</small>
+    </a>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#refeicoes">Refeições</a>
+        <a href="#entradas">Entradas</a>
+        <a href="#bebidas">Bebidas</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <a class="botao"
+       href="https://wa.me/5588994510824"
+       target="_blank">
+       Peça agora
+    </a>
+</header>
+
+<main>
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+    <div class="hero-texto">
+        <span class="etiqueta">Uma experiência especial</span>
+
+        <h1>
+            Sabor e qualidade<br>
+            <span>em cada detalhe.</span>
+        </h1>
+
+        <p>
+            Descubra uma gastronomia especial, com pratos preparados
+            com ingredientes selecionados, cuidado e muito sabor.
+        </p>
+
+        <a href="#refeicoes" class="botao">
+            Explorar cardápio →
+        </a>
+    </div>
+
+    <div class="destaque">
+        “Boa comida é sempre uma boa ideia.”
+    </div>
+</section>
+
+<!-- REFEIÇÕES -->
+
+<section class="cardapio" id="refeicoes">
+    <div class="titulo-secao">
+        <span>Pratos principais</span>
+        <h2>Refeições</h2>
+        <p>Pratos preparados para tornar seu momento especial.</p>
+    </div>
+
+    <div class="lista-pratos">
+
+        <article class="prato">
+            <div>
+                <h3>Filé de Frango Grelhado</h3>
+                <p>Acompanha arroz, feijão, salada e batata.</p>
+            </div>
+            <span class="preco">R$ 32,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Picanha Grelhada</h3>
+                <p>Acompanha arroz, feijão, farofa e salada.</p>
+            </div>
+            <span class="preco">R$ 59,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Parmegiana de Carne</h3>
+                <p>Carne empanada, molho especial e queijo.</p>
+            </div>
+            <span class="preco">R$ 38,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Strogonoff de Frango</h3>
+                <p>Acompanha arroz e batata palha.</p>
+            </div>
+            <span class="preco">R$ 36,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Lasanha à Bolonhesa</h3>
+                <p>Massa artesanal, molho e queijo gratinado.</p>
+            </div>
+            <span class="preco">R$ 34,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Risoto de Camarão</h3>
+                <p>Risoto cremoso com camarões selecionados.</p>
+            </div>
+            <span class="preco">R$ 54,90</span>
+        </article>
+
+    </div>
+</section>
+
+<!-- ENTRADAS -->
+
+<section class="cardapio" id="entradas">
+    <div class="titulo-secao">
+        <span>Para começar</span>
+        <h2>Entradas</h2>
+        <p>Pequenos sabores para abrir o apetite.</p>
+    </div>
+
+    <div class="lista-pratos">
+
+        <article class="prato">
+            <div>
+                <h3>Bruschetta Tradicional</h3>
+                <p>Pão artesanal, tomate, manjericão e azeite.</p>
+            </div>
+            <span class="preco">R$ 18,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Tábua de Frios</h3>
+                <p>Queijos, salames, azeitonas e pães.</p>
+            </div>
+            <span class="preco">R$ 39,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Batata Rústica</h3>
+                <p>Crocante por fora, macia por dentro.</p>
+            </div>
+            <span class="preco">R$ 16,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Calabresa Acebolada</h3>
+                <p>Calabresa grelhada com cebola e pão.</p>
+            </div>
+            <span class="preco">R$ 24,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Bolinho de Carne</h3>
+                <p>Porção crocante com temperos especiais.</p>
+            </div>
+            <span class="preco">R$ 22,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Anéis de Cebola</h3>
+                <p>Porção crocante e saborosa.</p>
+            </div>
+            <span class="preco">R$ 19,90</span>
+        </article>
+
+    </div>
+</section>
+
+<!-- BEBIDAS -->
+
+<section class="cardapio" id="bebidas">
+    <div class="titulo-secao">
+        <span>Para acompanhar</span>
+        <h2>Bebidas</h2>
+        <p>Opções para refrescar e completar sua refeição.</p>
+    </div>
+
+    <div class="lista-pratos">
+
+        <article class="prato">
+            <div>
+                <h3>Refrigerante Lata</h3>
+                <p>Coca-Cola, Guaraná, Sprite e Fanta.</p>
+            </div>
+            <span class="preco">R$ 7,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Cerveja Long Neck</h3>
+                <p>Consulte as marcas disponíveis.</p>
+            </div>
+            <span class="preco">R$ 12,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Suco Natural</h3>
+                <p>Laranja, abacaxi, limão e morango.</p>
+            </div>
+            <span class="preco">R$ 10,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Caipirinha</h3>
+                <p>Limão, morango e outras opções.</p>
+            </div>
+            <span class="preco">R$ 18,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Água Mineral</h3>
+                <p>Com gás ou sem gás.</p>
+            </div>
+            <span class="preco">R$ 5,90</span>
+        </article>
+
+        <article class="prato">
+            <div>
+                <h3>Drinks Especiais</h3>
+                <p>Consulte os sabores disponíveis.</p>
+            </div>
+            <span class="preco">R$ 22,90</span>
+        </article>
+
+    </div>
+</section>
+
+</main>
+
+<!-- ENDEREÇO E CONTATO -->
+
+<footer id="contato">
+
+    <div class="informacoes">
+
+        <div class="info">
+            <h3>📍 Endereço</h3>
+            <p>Rua das Flores, 123</p>
+            <p>Centro - Sua cidade</p>
+            <p>CEP: 00000-000</p>
+        </div>
+
+        <div class="info">
+            <h3>☎ Telefone / WhatsApp</h3>
+            <p>(00) 00000-0000</p>
+            <p>Atendimento de segunda a domingo.</p>
+            <p>Das 11h às 23h.</p>
+        </div>
+
+        <div class="info">
+            <h3>Faça seu pedido</h3>
+            <p>Estamos esperando por você!</p>
+            <br>
+            <a class="botao"
+               href="https://wa.me/5588994510824"
+               target="_blank">
+               Fale conosco
+            </a>
+        </div>
+
+    </div>
+
+    <div class="rodape-final">
+        © 2026 Sabor Nobre — Gastronomia Premium.
+        Todos os direitos reservados.
+    </div>
+
+</footer>
+
+</body>
+</html>
